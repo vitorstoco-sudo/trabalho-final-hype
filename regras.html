@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<h1>Regras</h1>
+<ul>
+    <li>Uma palavra secreta é escolhida automaticamente.</li>
+    <li>Digite uma letra de cada vez no campo disponível.</li>
+    <li>Acertos revelam todas as posições da letra escolhida.</li>
+    <li>Cada letra errada adiciona uma parte ao desenho da forca.</li>
+    <li>Você vence ao descobrir toda a palavra antes de cometer seis erros.</li>
+</ul>
+<a class="botao" href="{{ url_for('index') }}">Voltar para o jogo</a>
+{% endblock %}

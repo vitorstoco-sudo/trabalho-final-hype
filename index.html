@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<h1>Jogo da Velha</h1>
+
+{% if vencedor %}
+    <p class="mensagem">Jogador {{ vencedor }} venceu!</p>
+{% elif empate %}
+    <p class="mensagem">Empate!</p>
+{% else %}
+    <p class="mensagem">Vez do jogador {{ jogador }}</p>
+{% endif %}
+
+<div class="tabuleiro">
+    {% for posicao in range(9) %}
+        {% set valor = tabuleiro[posicao] %}
+        {% if valor or vencedor or empate %}
+            <div class="celula {{ valor }}">{{ valor }}</div>
+        {% else %}
+            <a class="celula" href="{{ url_for('jogar', posicao=posicao) }}">&nbsp;</a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<a class="botao" href="{{ url_for('reiniciar') }}">Novo jogo</a>
+{% endblock %}
